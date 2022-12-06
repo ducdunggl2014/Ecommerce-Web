@@ -5,6 +5,17 @@
         <h4>Thêm sản phẩm :</h4>
     </div>
 
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     @php
     $message = Session::get('message');
     if($message){
@@ -36,16 +47,16 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Giá bán</label>
                 <input type="text" data-validation="length" data-validation-length="min5"
-                    data-validation-error-msg="Làm ơn điền số tiền" name="product_price"
-                    class="form-control price_format" id="" placeholder="Tên danh mục">
+                    data-validation-error-msg="Làm ơn điền số tiền" name="product_price" class="form-control " id=""
+                    placeholder="Điền giá bán">
             </div>
 
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Giá gốc</label>
                 <input type="text" data-validation="length" data-validation-length="min5"
-                    data-validation-error-msg="Làm ơn điền số tiền" name="price_cost" class="form-control price_format"
-                    id="" placeholder="Tên danh mục">
+                    data-validation-error-msg="Làm ơn điền số tiền" name="price_cost" class="form-control " id=""
+                    placeholder="Giá gốc">
             </div>
 
             <div class="form-group">

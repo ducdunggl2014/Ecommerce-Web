@@ -46,7 +46,50 @@ class ProductController extends Controller
     }
     public function save_product(Request $request){
          $this->AuthLogin();
-    	$data = array();
+    	// $data = array();
+
+        $data = $request->validate([
+        'product_name' => 'required|unique:tbl_product|max:255',
+        'price_cost' => 'required|numeric|min:1|max:100000000',
+        'product_quantity' => 'required|numeric|min:1|max:10000',
+        'product_slug' => 'required',
+        'product_price' => 'required|numeric|min:1|max:;100000000',
+        'product_desc' => 'required',
+        'product_content' => 'required',
+        // 'category_id' => 'required',
+        // 'brand_id' => 'required',
+        'product_status' => 'required',
+        'product_image' => 'required',
+    ],
+       [
+        'product_name.required' => 'Vui lòng điền tên sản phẩm',
+        'product_name.unique' => 'Tên sản phẩm đã tồn tại, vui lòng điền tên khác',
+
+        'price_cost.required'  => 'Vui lòng điền giá gốc sản phẩm',
+        'price_cost.numeric'  => 'Giá gốc cần điền đúng định dạng số',
+        'price_cost.max'  => 'Giá gốc không quá 1 tỉ',
+        'price_cost.min'  => 'Giá gốc là một số dương',
+
+        'product_quantity.required'  => 'Vui lòng điền số lượng sản phẩm',
+        'product_quantity.numeric'  => 'Số lượng sản phẩm cần điền định dạng số',
+        'product_quantity.max'  => 'Số lượng sản phẩm không quá 10000',
+        'product_quantity.min'  => 'Số lượng sản phẩm là một số dương',
+
+        'product_slug.required'  => 'Vui lòng điền slug sản phẩm',
+
+        'product_price.required'  => 'Vui lòng điền giá sản phẩm',
+        'product_price.numeric'  => 'Vui lòng điền đúng định dạng số',
+        'product_price.max'  => 'Giá sản phẩm không quá 1 tỉ',
+        'product_price.min'  => 'Giá sản phẩm là một số dương',
+        
+        'product_desc.required'  => 'Vui lòng điền mô tả sản phẩm',
+        'product_content.required'  => 'Vui lòng nội dung sản phẩm',
+        'category_id.required'  => 'Vui lòng điền danh mục sản phẩm',
+        'brand_id.required'  => 'Vui lòng điền thương hiệu sản phẩm',
+        'product_status.required'  => 'Vui lòng điền trạng thái sản phẩm',
+        'product_image.required'  => 'Vui lòng điền hình ảnh sản phẩm',
+    ]
+    );
 
         $product_price = filter_var($request->product_price,FILTER_SANITIZE_NUMBER_INT);
         $price_cost = filter_var($request->price_cost,FILTER_SANITIZE_NUMBER_INT);

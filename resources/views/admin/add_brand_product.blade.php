@@ -4,6 +4,17 @@
     <div class="form-title">
         <h4>Thêm thương hiệu sản phẩm :</h4>
     </div>
+    {{-- Error nếu chưa điền đủ validation --}}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    {{-- Error nếu chưa điền đủ validation --}}
 
     @php
     $message = Session::get('message');
@@ -18,7 +29,7 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="exampleInputEmail1">Tên thương hiệu</label>
-                <input type="text" name="brand_product_name" class="form-control" onkeyup="ChangeToSlug();" id="slug"
+                <input type="text" name="brand_name" class="form-control" onkeyup="ChangeToSlug();" id="slug"
                     placeholder="Tên danh mục">
             </div>
             <div class="form-group">

@@ -39,10 +39,30 @@ class BrandProduct extends Controller
     }
     public function save_brand_product(Request $request){
         $this->AuthLogin();
-        $data = $request->all();
 
+        $data = $request->validate([
+        'brand_name' => 'required|unique:tbl_brand|max:255',
+        
+        'brand_slug' => 'required',
+        'brand_product_desc' => 'required',
+        'brand_product_status' => 'required',
+       
+        
+    ],[ 
+        'brand_name.required' => 'Tên thương hiệu không được để trống',
+        'brand_name.unique' => 'Tên thương hiệu đã tồn tại, vui lòng chọn tên khác',
+
+        'brand_slug.required' => 'Vui lòng điền slug thương hiệu',
+
+        
+        'brand_product_desc.required' => 'Vui lòng điền mô tả thương hiệu',
+        
+       
+      
+    ]
+);
         $brand = new Brand();
-        $brand->brand_name = $data['brand_product_name'];
+        $brand->brand_name = $data['brand_name'];
         $brand->brand_slug = $data['brand_slug'];
         $brand->brand_desc = $data['brand_product_desc'];
         $brand->brand_status = $data['brand_product_status'];

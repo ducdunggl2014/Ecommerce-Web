@@ -74,7 +74,30 @@ public function impersonate_destroy(){
         return redirect()->back()->with('message','Cấp quyền thành công');
     }
     public function store_users(Request $request){
-        $data = $request->all();
+        $data = $request->validate([
+        'admin_email' => 'required|unique:tbl_admin|max:255',
+        
+        'admin_name' => 'required',
+        'admin_phone' => 'required',
+        'admin_password' => 'required',
+       
+        
+    ],
+    [ 
+        'admin_email.required' => 'Địa chỉ Email không được để trống',
+        'admin_email.unique' => 'Địa chỉ Email đã tồn tại, vui lòng chọn tên khác',
+
+        'admin_name.required' => 'Vui lòng điền họ tên của bạn',
+
+        
+        'admin_phone.required' => 'Vui lòng điền số điện thoại',
+        'admin_password.required' => 'Vui lòng mật khẩu',
+        
+       
+      
+    ]
+);
+
         $admin = new Admin();
         $admin->admin_name = $data['admin_name'];
         $admin->admin_phone = $data['admin_phone'];

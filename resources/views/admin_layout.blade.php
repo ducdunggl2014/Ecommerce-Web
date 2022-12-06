@@ -456,7 +456,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <script src="{{asset('public/backend/js_1/bootstrap.js')}}"></script>
   <!-- //Bootstrap Core JavaScript -->
 
-  <script src="{{asset('public/backend/js/jquery.form-validator.min.js')}}"></script>
+
   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
@@ -851,11 +851,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         }
 
     });
+ 
   </script>
-  <script type="text/javascript">
-    $.validate({
+  // <script src="{{asset('public/backend/js/jquery.form-validator.min.js')}}">
+    // 
+  // 
+  </script>
+  // <script type="text/javascript">
+    //   $.validate({
            
-    });
+  //   });
+  // 
+  // 
   </script>
   <script type="text/javascript">
     $(document).ready(function(){

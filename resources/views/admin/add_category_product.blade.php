@@ -4,6 +4,15 @@
     <div class="form-title">
         <h4>Thêm danh mục sản phẩm :</h4>
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     @php
     $message = Session::get('message');
     if($message){
@@ -16,7 +25,7 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="exampleInputEmail1">Tên danh mục</label>
-                <input type="text" class="form-control" onkeyup="ChangeToSlug();" name="category_product_name" id="slug"
+                <input type="text" class="form-control" onkeyup="ChangeToSlug();" name="category_name" id="slug"
                     placeholder="Điền tên danh mục" />
             </div>
             <div class="form-group">

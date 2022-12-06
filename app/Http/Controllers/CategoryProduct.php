@@ -46,10 +46,32 @@ class CategoryProduct extends Controller
     public function save_category_product(Request $request){
 
         $this->AuthLogin();
-        $data = $request->all();
+
+        $data = $request->validate([
+        'category_name' => 'required|unique:tbl_category_product|max:255',
+        
+        'category_parent' => 'required',
+        'category_product_keywords' => 'required',
+        'slug_category_product' => 'required',
+        'category_product_desc' => 'required',
+        'category_product_status' => 'required', 
+        
+    ],[ 
+        'category_name.required' => 'Tên danh mục không được để trống',
+        'category_name.unique' => 'Tên danh mục đã tồn tại, vui lòng chọn tên khác',
+
+       
+        'category_product_keywords.required' => 'Vui lòng điền từ khóa danh mục',
+        'slug_category_product.required' => 'Vui lòng điền slug danh mục',
+        'category_product_desc.required' => 'Vui lòng điền mô tả',
+        
+    ]
+);
+        
+        
         if($data){
         $category = new CategoryProductModel();
-        $category->category_name = $data['category_product_name'];
+        $category->category_name = $data['category_name'];
         $category->category_parent = $data['category_parent'];
         $category->meta_keywords = $data['category_product_keywords'];
         $category->slug_category_product = $data['slug_category_product'];
