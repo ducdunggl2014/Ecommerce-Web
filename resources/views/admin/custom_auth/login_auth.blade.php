@@ -8,8 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-  <title>Glance Design Dashboard an Admin Panel Category Flat Bootstrap Responsive Website Template | Login Page ::
-    w3layouts</title>
+  <title>Trang Đăng nhập Admin - Quản lý</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -60,29 +59,37 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
         <div class="widget-shadow">
           <div class="login-body">
+            @php
+
+            $message = Session::get('message');
+            if($message){
+            echo '<span class="text-alert">'.$message.'</span>';
+            Session::put('message',null);
+            }
+            @endphp
             <form action="{{URL::to('/login')}}" method="post">
               {{ csrf_field() }}
-              @foreach($errors->all() as $val)
-              <ul>
-                <li>{{$val}}</li>
-              </ul>
-              @endforeach
-              @php
 
-              $message = Session::get('message');
-              if($message){
-              echo '<span class="text-alert">'.$message.'</span>';
-              Session::put('message',null);
-              }
-              @endphp
+
+              @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+              @endif
+
 
               <input type="email" class="user" name="admin_email" placeholder="Điền Email">
-              <input type="password" name="admin_password" class="lock" placeholder="Điền Mật khẩu" required="">
+              <input type="password" name="admin_password" class="lock" placeholder="Điền Mật khẩu">
               <div class="forgot-grid">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Nhớ đăng nhập</label>
-                <div class="forgot">
+                {{-- <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Nhớ đăng
+                  nhập</label> --}}
+                {{-- <div class="forgot">
                   <a href="#">Quên mật khẩu?</a>
-                </div>
+                </div> --}}
                 <div class="clearfix"> </div>
               </div>
               <input type="submit" name="login" value="Đăng nhập">
@@ -93,8 +100,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 </a>
               </div> --}}
             </form>
-            <a href="{{url('/login-facebook')}}">Đăng nhập bằng Facebook </a> |
-            <a href="{{url('/register-auth')}}">Đăng ký tài khoản </a>
+            {{-- <a href="{{url('/login-facebook')}}">Đăng nhập bằng Facebook </a> |
+            <a href="{{url('/register-auth')}}">Đăng ký tài khoản </a> --}}
           </div>
         </div>
 

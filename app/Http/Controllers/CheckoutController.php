@@ -184,6 +184,8 @@ class CheckoutController extends Controller
 
     public function confirm_order(Request $request){
          $data = $request->all();
+
+         
         //get coupon
         if(Session::get('coupon')!=null)
         {
@@ -365,19 +367,52 @@ class CheckoutController extends Controller
 
     	return view('pages.checkout.login_checkout')->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical)->with('slider',$slider)->with('contact',$contact);
     }
-    public function validation($request){
+//     public function validation($request){
 
-        return $this->validate($request,[
-    'customer_name' => 'required|max:255',
-    'customer_phone' =>'required|max:255',
-    'customer_email' =>'required|unique:tbl_customers,customer_email|max:255',
-    'customer_password' =>'required|max:255',
-    ]);
-}
+//         return $this->validate($request,[
+//     'customer_name' => 'required|max:255',
+//     'customer_phone' =>'required|max:255',
+//     'customer_email' =>'required|unique:tbl_customers,customer_email|max:255',
+//     'customer_password' =>'required|max:255',
+//     ]);
+// }
     public function add_customer(Request $request){
-        $this->validation($request);
+        // $this->validation($request);
 
-    	$data = array();
+        $data = $request->validate([
+        'customer_email' => 'required|unique:tbl_customers|max:255|email',
+        
+        'customer_name' => 'required',
+        'customer_phone' => 'required|numeric|min:10|max:10',
+        'customer_password' => 'required',
+       
+        
+    ],
+    [ 
+        'customer_email.required' => 'Địa chỉ Email không được để trống',
+        'customer_email.unique' => 'Địa chỉ Email đã tồn tại, vui lòng chọn tên khác',
+        'customer_email.email' => 'Vui lòng điền địa chỉ Email hợp lệ',
+
+        'customer_name.required' => 'Vui lòng điền họ tên của bạn',
+
+        
+        'customer_phone.required' => 'Vui lòng điền số điện thoại',
+        'customer_phone.numeric' => 'Vui lòng điền số điện thoại hợp lệ',
+        'customer_phone.min' => 'Vui lòng điền số điện thoại là 10 số',
+        'customer_phone.max' => 'Vui lòng điền số điện thoại là 10 số',
+
+        'customer_password.required' => 'Vui lòng điền mật khẩu',
+        
+       
+      
+    ]
+);
+
+
+
+
+
+
     	$data['customer_name'] = $request->customer_name;
     	$data['customer_phone'] = $request->customer_phone;
     	$data['customer_email'] = $request->customer_email;

@@ -78,7 +78,7 @@ public function impersonate_destroy(){
         'admin_email' => 'required|unique:tbl_admin|max:255',
         
         'admin_name' => 'required',
-        'admin_phone' => 'required',
+        'admin_phone' => 'required|numeric|min:10|max|10',
         'admin_password' => 'required',
        
         
@@ -91,7 +91,11 @@ public function impersonate_destroy(){
 
         
         'admin_phone.required' => 'Vui lòng điền số điện thoại',
-        'admin_password.required' => 'Vui lòng mật khẩu',
+        'admin_phone.numeric' => 'Vui lòng điền số điện thoại',
+        'admin_phone.min' => 'Vui lòng điền số điện thoại là 10 số',
+        'admin_phone.max' => 'Vui lòng điền số điện thoại là 10 số',
+
+        'admin_password.required' => 'Vui lòng điền mật khẩu',
         
        
       

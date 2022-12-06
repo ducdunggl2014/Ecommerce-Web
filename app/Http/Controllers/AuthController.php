@@ -23,16 +23,33 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
-        $this->validate($request,[
-            'admin_email' =>'required|email|max:255',
-            'admin_password' =>'required|max:255',
-            ]);
-        // $data = $request->all();
+     
+        $data = $request->validate([
+        'admin_email' => 'required|email|max:255',
+        
+        'admin_password' => 'required',
+       
+       
+        
+    ],[ 
+        'admin_email.required' => 'Vui lòng điền địa chỉ Email',
+        'admin_email.email' => 'Địa chỉ Email không hợp lệ',
+
+        'admin_password.required' => 'Vui lòng điền mật khẩu',
+
+        
+     
+        
+       
+      
+    ]
+);
+
         if (Auth::attempt(['admin_email' => $request->admin_email,'admin_password' => $request->admin_password])){
 
             return redirect('/dashboard');
         } else {
-            return redirect('/login-auth')->with('message', 'Lỗi đăng nhập authetication');
+            return redirect('/login-auth')->with('message', 'Đia chỉ Email hoặc Mật khẩu không đúng, vui lòng thử lại');
 
         }
     }

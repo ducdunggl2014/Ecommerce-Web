@@ -48,10 +48,7 @@
 
 						<input type="text" name="email_account" placeholder="Tài khoản" />
 						<input type="password" name="password_account" placeholder="Password" />
-						<span>
-							<input type="checkbox" class="checkbox">
-							Ghi nhớ đăng nhập
-						</span>
+
 						<span>
 							<a href="{{url('/quen-mat-khau')}}">Quên mật khẩu?</a>
 						</span>
@@ -83,22 +80,30 @@
 				</div>
 				<!--/login form-->
 			</div>
-			<div class="col-sm-1">
+			<div class="col-sm-2">
 				<h2 class="or">Hoặc</h2>
 			</div>
 			<div class="col-sm-3">
+
 				<div class="signup-form">
 					<!--sign up form-->
+					{{-- Error nếu chưa điền đủ validation --}}
+					@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+					@endif
+					{{-- Error nếu chưa điền đủ validation --}}
 					<h2>Đăng ký</h2>
 					<form action="{{URL::to('/add-customer')}}" method="POST">
 						{{ csrf_field() }}
-						@foreach($errors->all() as $val)
-						<ul>
-							<li>{{$val}}</li>
-						</ul>
-						@endforeach
+
 						<input type="text" name="customer_name" placeholder="Họ và tên" />
-						<input type="email" name="customer_email" placeholder="Địa chỉ email" />
+						<input type="text" name="customer_email" placeholder="Địa chỉ email" />
 						<input type="password" name="customer_password" placeholder="Mật khẩu" />
 						<input type="text" name="customer_phone" placeholder="Phone" />
 						<button type="submit" class="btn btn-default">Đăng ký</button>
@@ -106,6 +111,7 @@
 				</div>
 				<!--/sign up form-->
 			</div>
+
 		</div>
 	</div>
 </section>
