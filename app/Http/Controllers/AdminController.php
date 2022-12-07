@@ -24,7 +24,7 @@ use App\Customer;
 use App\CategoryProductModel;
 use App\Brand;
 use App\SocialCustomers;
-
+use Toastr;
 
 class AdminController extends Controller
 {
@@ -51,7 +51,9 @@ class AdminController extends Controller
             Session::put('customer_picture',$account_name->customer_picture);
             Session::put('customer_name',$account_name->customer_name);
            }
-           return redirect('/dang-nhap')->with('message', 'Đăng nhập bằng tài khoản google <span style="color:red">'.$account_name->customer_email.'</span> thành công');  
+           Toastr::success('Đăng nhập bằng tài khoản Google thành công','Thành công');
+
+           return redirect('/checkout');  
 
     }
     public function findOrCreateCustomer($users, $provider){

@@ -42,7 +42,7 @@ class HomeController extends Controller
         //seo 
         $meta_desc = "Chuyên bán những phụ kiện ,thiết bị game"; 
         $meta_keywords = "thiet bi game,phu kien game,game phu kien,game giai tri";
-        $meta_title = "Phụ kiện,máy chơi game chính hãng";
+        $meta_title = "Trang chủ | Laptop Store, chuyên bán Laptop và linh kiện máy tính";
         $url_canonical = $request->url();
         //--seo
         

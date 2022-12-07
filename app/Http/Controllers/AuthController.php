@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\Roles;
 use Auth;
+use Toastr;
 class AuthController extends Controller
 {
     public function register_auth(){
@@ -18,8 +19,10 @@ class AuthController extends Controller
 
     public function logout_auth(){
         Auth::logout();
+        
+        Toastr::success('Đăng xuất thành công','Thành công');
 
-        return redirect('/login-auth')->with('message', 'Đăng xuất authetication thành công');
+        return redirect('/login-auth');
     }
 
     public function login(Request $request){
@@ -47,9 +50,13 @@ class AuthController extends Controller
 
         if (Auth::attempt(['admin_email' => $request->admin_email,'admin_password' => $request->admin_password])){
 
+            Toastr::success('Đăng nhập thành công','Thành công');
+
             return redirect('/dashboard');
         } else {
-            return redirect('/login-auth')->with('message', 'Đia chỉ Email hoặc Mật khẩu không đúng, vui lòng thử lại');
+            Toastr::error('Mật khẩu không đúng, vui lòng thử lại','Thất bại');
+
+            return redirect('/login-auth');
 
         }
     }

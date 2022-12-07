@@ -12,6 +12,7 @@ use Cart;
 use Carbon\Carbon;
 use App\Coupon;
 use App\Contact;
+use Toastr;
 session_start();
 class CartController extends Controller
 {
@@ -27,7 +28,9 @@ class CartController extends Controller
         if(Session::get('customer_id')){
             $coupon = Coupon::where('coupon_code',$data['coupon'])->where('coupon_status',1)->where('coupon_date_end','>=',$today)->where('coupon_date_start','<=',$today)->where('coupon_used','LIKE','%'.Session::get('customer_id').'%')->where('coupon_time','>',0)->first();
             if($coupon){
-            return redirect()->back()->with('error','Mã giảm giá đã sử dụng hoặc hết lượt nhập, vui lòng nhập mã khác');
+                Toastr::error('Mã giảm giá đã sử dụng hoặc hết lượt nhập, vui lòng nhập mã khác','Thất bại');
+
+            return redirect()->back();
         } else{ 
             $coupon_login = Coupon::where('coupon_code',$data['coupon'])->where('coupon_status',1)->where('coupon_date_end','>=',$today)->first();
         if($coupon_login){
@@ -55,11 +58,15 @@ class CartController extends Controller
                     Session::put('coupon',$cou);
                 }
                 Session::save();
-                return redirect()->back()->with('message','Thêm mã giảm giá thành công');
+                Toastr::success('Thêm mã giảm giá thành công','Thành công');
+
+                return redirect()->back();
             }
 
         }else{
-            return redirect()->back()->with('error','Mã giảm giá không đúng hoặc hết hạn');
+            Toastr::error('Mã giảm giá không đúng hoặc hết hạn','Thất bại');
+
+            return redirect()->back();
         }
     }
     // neu chua dang nhap
@@ -90,7 +97,8 @@ class CartController extends Controller
                     Session::put('coupon',$cou);
                 }
                 Session::save();
-                return redirect()->back()->with('message','Thêm mã giảm giá thành công');
+                
+                return redirect()->back();
             }
 
         }else{
@@ -171,10 +179,14 @@ class CartController extends Controller
                 }
             }
             Session::put('cart',$cart);
-            return redirect()->back()->with('message','Xóa sản phẩm thành công');
+            Toastr::success('Xóa sản phẩm thành công','Thành công');
+
+            return redirect()->back();
 
         }else{
-            return redirect()->back()->with('message','Xóa sản phẩm thất bại');
+            Toastr::error('Xóa sản phẩm thất bại','Thất bại');
+
+            return redirect()->back();
         }
 
     }
@@ -192,10 +204,14 @@ class CartController extends Controller
                     if($val['session_id']==$key){
 
                         $cart[$session]['product_qty'] = $qty;
-                        $message.='<p style="color:blue">'.$i.') Cập nhật số lượng: '.$cart[$session]['product_name'].' thành công</p>';
+                        // $message.='<p style="color:blue">'.$i.') Cập nhật số lượng: '.$cart[$session]['product_name'].' thành công</p>';
+                        Toastr::success('Cập nhật số lượng sản phẩm thành công','Thành công');
+
+
 
                     }elseif($val['session_id']==$key){
-                        $message.='<p style="color:red">'.$i.') Cập nhật số lượng :'.$cart[$session]['product_name'].' thất bại</p>';
+                        Toastr::error('Cập nhật số lượng sản phẩm thất bại','Thất bại');
+
                     }
 
                 }
@@ -203,9 +219,11 @@ class CartController extends Controller
             }
 
             Session::put('cart',$cart);
-            return redirect()->back()->with('message',$message);
+            return redirect()->back();
         }else{
-            return redirect()->back()->with('message','Cập nhật số lượng thất bại');
+            Toastr::error('Cập nhật số lượng sản phẩm thất bại','Thất bại');
+
+            return redirect()->back();
         }
     }
     public function delete_all_product(){
@@ -214,7 +232,10 @@ class CartController extends Controller
             // Session::destroy();
             Session::forget('cart');
             Session::forget('coupon');
-            return redirect()->back()->with('message','Xóa hết giỏ thành công');
+
+            Toastr::success('Xóa tất cả sản phẩm thành công','Thành công');
+
+            return redirect()->back();
         }
     }
     public function save_cart(Request $request){

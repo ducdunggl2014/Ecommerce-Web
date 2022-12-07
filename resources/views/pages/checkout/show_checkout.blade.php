@@ -14,7 +14,15 @@
 			<p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng</p>
 		</div>
 		<!--/register-req--> --}}
-
+		@if(session()->has('message'))
+		<div class="alert alert-success">
+			{!! session()->get('message') !!}
+		</div>
+		@elseif(session()->has('error'))
+		<div class="alert alert-danger">
+			{!! session()->get('error') !!}
+		</div>
+		@endif
 		<div class="shopper-informations">
 			<div class="row" style="margin-bottom:60px;">
 
@@ -126,15 +134,7 @@
 				@endif
 				<br>
 				<br>
-				@if(session()->has('message'))
-				<div class="alert alert-success">
-					{!! session()->get('message') !!}
-				</div>
-				@elseif(session()->has('error'))
-				<div class="alert alert-danger">
-					{!! session()->get('error') !!}
-				</div>
-				@endif
+
 
 
 

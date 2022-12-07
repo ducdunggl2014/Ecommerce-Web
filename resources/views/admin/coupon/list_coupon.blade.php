@@ -100,7 +100,7 @@
           </td>
 
           <td>
-            <p><a href="{{url('/send-coupon-vip',[
+            {{-- <p><a href="{{url('/send-coupon-vip',[
             
             'coupon_time'=>$cou->coupon_time,
             'coupon_condition'=>$cou->coupon_condition,
@@ -108,14 +108,14 @@
             'coupon_code'=>$cou->coupon_code
             ])}}" class="btn btn-primary">Gửi MGG cho khách VIP</a>
             </p>
-            <br>
+            <br> --}}
             <p><a href="{{url('/send-coupon',[
              
               'coupon_time'=>$cou->coupon_time,
               'coupon_condition'=>$cou->coupon_condition,
               'coupon_number'=>$cou->coupon_number,
               'coupon_code'=>$cou->coupon_code
-              ])}}" class="btn btn-success">Gửi MGG cho khách thường</a></p>
+              ])}}" class="btn btn-success">Gửi MGG cho khách hàng</a></p>
           </td>
         </tr>
         @endforeach

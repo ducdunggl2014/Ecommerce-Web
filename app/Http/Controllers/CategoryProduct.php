@@ -16,6 +16,7 @@ use App\Contact;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 use Auth;
+use Toastr;
 
 class CategoryProduct extends Controller
 {
@@ -78,12 +79,13 @@ class CategoryProduct extends Controller
         $category->category_desc = $data['category_product_desc'];
         $category->category_status = $data['category_product_status'];
         $category->save();
-
-        Session::put('message','Thêm danh mục sản phẩm');
+        Toastr::success('Thêm danh mục sản phẩm thành công','Thành công');
+        // Session::put('message','Thêm danh mục sản phẩm');
     	return Redirect::to('add-category-product');
         }
         else{
             Session::put('message','Vui lòng điền đầy đủ các trường');
+        
     	    return Redirect::to('add-category-product');
         }
       
@@ -117,14 +119,18 @@ class CategoryProduct extends Controller
     public function unactive_category_product($category_product_id){
         $this->AuthLogin();
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>0]);
-        Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
+        Toastr::success('Tắt kích hoạt danh mục sản phẩm thành công','Thành công');
+
+        // Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
 
     }
     public function active_category_product($category_product_id){
         $this->AuthLogin();
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
-        Session::put('message','Kích hoạt danh mục sản phẩm thành công');
+        Toastr::success('Kích hoạt danh mục sản phẩm thành công','Thành công');
+
+        // Session::put('message','Kích hoạt danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
     }
     public function edit_category_product($category_product_id){
@@ -145,13 +151,17 @@ class CategoryProduct extends Controller
         $data['slug_category_product'] = $request->slug_category_product;
         $data['category_desc'] = $request->category_product_desc;
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
-        Session::put('message','Cập nhật danh mục sản phẩm thành công');
+        Toastr::success('Cập nhật danh mục sản phẩm thành công','Thành công');
+
+        // Session::put('message','Cập nhật danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
     }
     public function delete_category_product($category_product_id){
         $this->AuthLogin();
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->delete();
-        Session::put('message','Xóa danh mục sản phẩm thành công');
+        Toastr::success('Xóa danh mục sản phẩm thành công','Thành công');
+
+        // Session::put('message','Xóa danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
     }
 

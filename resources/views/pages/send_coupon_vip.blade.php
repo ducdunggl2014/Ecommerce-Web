@@ -9,7 +9,7 @@
 <body>
   <div class="coupon">
     <div class="container">
-      <h3>Mã khuyến mãi từ shop <a target="_blank" href="http://laptopstore.com/shopbanhanglaravel1/">
+      <h3>Mã khuyến mãi từ shop <a target="_blank" href="http://laptopstore.com/LaptopStore/">
         </a></h3>
 
     </div>

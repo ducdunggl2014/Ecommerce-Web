@@ -20,6 +20,7 @@ use Carbon\Carbon;
 use DB;
 use PDF;
 use Session;
+use Toastr;
 
 class OrderController extends Controller
 {
@@ -34,7 +35,8 @@ class OrderController extends Controller
 	public function order_code(Request $request ,$order_code){
 		$order = Order::where('order_code',$order_code)->first();
 		$order->delete();
-		 Session::put('message','Xóa đơn hàng thành công');
+		//  Session::put('message','Xóa đơn hàng thành công');
+		 Toastr::success('Xóa đơn hàng thành công','Thành công');
         return redirect()->back();
 
 	}

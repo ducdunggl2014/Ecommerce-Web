@@ -22,6 +22,7 @@ use App\Coupon;
 use App\OrderDetails;
 use App\Contact;
 use Auth;
+use Toastr;
 
 
 class CheckoutController extends Controller
@@ -56,8 +57,8 @@ class CheckoutController extends Controller
             $orderInfo = "Thanh toán qua ATM MoMo";
             $amount = $_POST['total_momo'];
             $orderId = time() . "";
-            $redirectUrl = "http://laptopstore.com/shopbanhanglaravel1/checkout";
-            $ipnUrl = "http://laptopstore.com/shopbanhanglaravel1/checkout";
+            $redirectUrl = "http://laptopstore.com/LaptopStore/checkout";
+            $ipnUrl = "http://laptopstore.com/LaptopStore/checkout";
             $extraData = "";
 
 
@@ -102,7 +103,7 @@ class CheckoutController extends Controller
             $data= $request->all();
             $code_cart = rand(00,9999);
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://localhost/shopbanhanglaravel1/checkout";
+            $vnp_Returnurl = "http://localhost/LaptopStore/checkout";
             $vnp_TmnCode = "TFZTTZR7";//Mã website tại VNPAY 
             $vnp_HashSecret = "HLOVDLXJMSDNIRJBQXBESQMAHWTQWICQ"; //Chuỗi bí mật
 
@@ -363,7 +364,8 @@ class CheckoutController extends Controller
 
     	$cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
         $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get(); 
-        
+
+
 
     	return view('pages.checkout.login_checkout')->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical)->with('slider',$slider)->with('contact',$contact);
     }
@@ -383,12 +385,12 @@ class CheckoutController extends Controller
         'customer_email' => 'required|unique:tbl_customers|max:255|email',
         
         'customer_name' => 'required',
-        'customer_phone' => 'required|numeric|min:10|max:10',
+        'customer_phone' => 'required|numeric|digits_between:10,10',
         'customer_password' => 'required',
        
         
-    ],
-    [ 
+        ],
+        [ 
         'customer_email.required' => 'Địa chỉ Email không được để trống',
         'customer_email.unique' => 'Địa chỉ Email đã tồn tại, vui lòng chọn tên khác',
         'customer_email.email' => 'Vui lòng điền địa chỉ Email hợp lệ',
@@ -398,20 +400,15 @@ class CheckoutController extends Controller
         
         'customer_phone.required' => 'Vui lòng điền số điện thoại',
         'customer_phone.numeric' => 'Vui lòng điền số điện thoại hợp lệ',
-        'customer_phone.min' => 'Vui lòng điền số điện thoại là 10 số',
-        'customer_phone.max' => 'Vui lòng điền số điện thoại là 10 số',
+        'customer_phone.digits_between' => 'Vui lòng điền số điện thoại là 10 số',
+        'customer_phone.digits_between' => 'Vui lòng điền số điện thoại là 10 số',
 
         'customer_password.required' => 'Vui lòng điền mật khẩu',
         
        
       
-    ]
-);
-
-
-
-
-
+            ]
+        );
 
     	$data['customer_name'] = $request->customer_name;
     	$data['customer_phone'] = $request->customer_phone;
@@ -422,7 +419,9 @@ class CheckoutController extends Controller
 
     	Session::put('customer_id',$customer_id);
     	Session::put('customer_name',$request->customer_name);
-    	return Redirect::to('/checkout');
+        Toastr::success('Đăng ký thành công, vui lòng đăng nhập','Thành công');
+
+    	return Redirect::to('/dang-nhap');
 
 
     }
@@ -443,6 +442,7 @@ class CheckoutController extends Controller
     	$cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
         $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get(); 
         $city = City::orderby('matp','ASC')->get();
+
 
     	return view('pages.checkout.show_checkout')->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical)->with('city',$city)->with('slider',$slider)->with('contact',$contact);
     }
@@ -540,6 +540,8 @@ class CheckoutController extends Controller
     	Session::forget('coupon');
     	Session::forget('cart');
         // Session::forget('success_vnpay');  
+        Toastr::success('Đăng xuất thành công','Thành công');
+
     	return Redirect::to('/dang-nhap');
     }
     public function login_customer(Request $request){
@@ -556,10 +558,12 @@ class CheckoutController extends Controller
            
     		Session::put('customer_id',$result->customer_id);
     		Session::put('customer_name',$result->customer_name);
+            Toastr::success('Đăng nhập thành công','Thành công');
+
     		return Redirect::to('/checkout');
     	}
         else{
-            Session::put('error','Mật khẩu hoặc tài khoản không đúng, vui lòng thử lại!');
+            Toastr::error('Vui lòng thử lại kiểm tra lại tài khoản và mật khẩu','Thất bại');
 
     		return Redirect::to('/dang-nhap');
     	}

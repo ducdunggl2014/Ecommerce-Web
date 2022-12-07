@@ -16,7 +16,7 @@ use App\Product;
 use App\Contact;
 use Illuminate\Support\Facades\Redirect;
 session_start();
-
+use Toastr;
 class MailController extends Controller
 {
     public function send_coupon_vip($coupon_time,$coupon_condition,$coupon_number,$coupon_code){
@@ -75,7 +75,9 @@ class MailController extends Controller
             $message->to($data['email'])->subject($title_mail); //send this mail with subject
             $message->from($data['email'],$title_mail); //send from this mail
         });
-        return redirect()->back()->with('message', 'Gửi mã khuyến mãi cho khách thường thành công');
+        Toastr::success('Gửi mã khuyến mãi cho khách hàng','Thành công');
+
+        return redirect()->back();
     }
 
     public function recover_password(Request $request){

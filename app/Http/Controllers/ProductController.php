@@ -13,6 +13,7 @@ use App\Gallery;
 use Auth;
 use App\Contact;
 use File;
+use Toastr;
 session_start();
 class ProductController extends Controller
 {
@@ -125,7 +126,8 @@ class ProductController extends Controller
         $gallery->gallery_name = $new_image;
         $gallery->product_id = $pro_id;
         $gallery->save();
-        Session::put('message','Thêm sản phẩm thành công');
+        // Session::put('message','Thêm sản phẩm thành công');
+        Toastr::success('Thêm sản phẩm thành công','Thành công');
         return Redirect::to('add-product');
 
        
@@ -133,14 +135,16 @@ class ProductController extends Controller
     public function unactive_product($product_id){
          $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>0]);
-        Session::put('message','Tắt kích hoạt sản phẩm thành công');
+        // Session::put('message','Tắt kích hoạt sản phẩm thành công');
+        Toastr::success('Tắt kích hoạt sản phẩm thành công','Thành công');
         return Redirect::to('all-product');
 
     }
     public function active_product($product_id){
          $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
-        Session::put('message','Kích hoạt sản phẩm thành công');
+        // Session::put('message','Kích hoạt sản phẩm thành công');
+        Toastr::success('Kích hoạt sản phẩm thành công','Thành công');
         return Redirect::to('all-product');
     }
     public function edit_product($product_id){
@@ -179,18 +183,20 @@ class ProductController extends Controller
                     $get_image->move('public/uploads/product',$new_image);
                     $data['product_image'] = $new_image;
                     DB::table('tbl_product')->where('product_id',$product_id)->update($data);
-                    Session::put('message','Cập nhật sản phẩm thành công');
+                    // Session::put('message','Cập nhật sản phẩm thành công');
+                    Toastr::success('Cập nhật sản phẩm thành công','Thành công');
                     return Redirect::to('all-product');
         }
             
         DB::table('tbl_product')->where('product_id',$product_id)->update($data);
-        Session::put('message','Cập nhật sản phẩm thành công');
+        // Session::put('message','Cập nhật sản phẩm thành công');
+        Toastr::success('Cập nhật sản phẩm thành công','Thành công');
         return Redirect::to('all-product');
     }
     public function delete_product($product_id){
         $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->delete();
-        Session::put('message','Xóa sản phẩm thành công');
+        Toastr::success('Xóa sản phẩm thành công','Thành công');
         return Redirect::to('all-product');
     }
     //End Admin Page

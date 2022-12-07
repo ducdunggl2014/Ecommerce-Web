@@ -13,15 +13,14 @@
 .monthly-header {
     position: relative;
     text-align: center;
-    padding: 10px;
-    background:#ddede0;
-    height: 48px;
+    padding: 15px;
+    background: #222d32;
     box-sizing: border-box;
 }
 .monthly-header-title {
     font-size: 1em;
     text-transform: uppercase;
-    color: #000000;
+    color: #ffffff;
 }
 /* wrapper for left button to make the clickable area bigger */
 .monthly-prev {
@@ -41,8 +40,8 @@
 	position: absolute;
 	top:50%;
 	left:50%;
-	border-left:2px solid #222;
-	border-bottom:2px solid #222;
+	border-left:2px solid #fff;
+	border-bottom:2px solid #fff;
 	width:10px;
 	height:10px;
 	margin:-3px 0 0 -5px;
@@ -68,8 +67,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    border-right: 2px solid #222;
-    border-top: 2px solid #222;
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
     width: 10px;
     height: 10px;
     margin: -3px 0 0 -5px;
@@ -81,10 +80,11 @@
 /* Day of the week headings */
 .monthly-day-title-wrap {
     display: table;
-    width: 100.1%;
+    width: 100%;
     background: #ddede0;
     border-bottom: 1px solid #c0dbc5;
-    padding-bottom: 1.3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 .monthly-day-title-wrap div {
     width: 14.28%!important;
@@ -94,7 +94,7 @@
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: .8em;
     color: #000000;
 }
 
@@ -125,7 +125,7 @@
     text-decoration: none;
 }
 .monthly-day-event {
-    padding-top: 17px !important; 
+    padding-top: 11px !important; 
 }
 /* Trick to make the days' width equal their height */
 .monthly-day:before {
@@ -142,15 +142,15 @@
 
 /* Days that are part of previous or next month */
 .monthly-day-blank {
-	background:#eef9f0;
+	background:#fff;
 }
 
 /* Event calendar day number styles */
 .monthly-day-event > .monthly-day-number {
     position: absolute;
     line-height: 24px;
-    top: 2px;
-    left: 2px;
+    top: 5px;
+    left: 5px;
     font-size: 13px;
     color: #000;
 }
@@ -191,7 +191,7 @@
 /* Current day style */
 .monthly-today .monthly-day-number {
     color: #ffffff;
-    background: #000000;
+    background: #337ab7;
     top: 1px;
     left: 1px;
     font-size: 13px;
@@ -300,7 +300,6 @@
 	height: 8px;
 	border-radius: 6px;
 	vertical-align: middle;
-	border-radius: 6px;
 	background:#7BA7CE;
 	font-size:0;
 	color:transparent;

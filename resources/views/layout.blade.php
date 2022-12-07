@@ -10,7 +10,9 @@
     <meta name="robots" content="INDEX,FOLLOW" />
     <link rel="canonical" href="{{$url_canonical}}" />
     <meta name="author" content="">
-    <link rel="icon" type="image/x-icon" href="" />
+    @foreach($contact as $key => $val)
+    <link rel="icon" type="image/x-icon" href="{{URL::to('public/uploads/contact/'.$val->info_logo)}}" />
+    @endforeach
 
     {{--
     <meta property="og:image" content="{{$image_og}}" />
@@ -34,6 +36,7 @@
     <link href="{{asset('public/frontend/css/prettify.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 
     <!--[if lt IE 9]>
@@ -553,10 +556,11 @@
             
             $('.send_order').click(function(){
                 // e.preventDefault();
-
+                
                 swal({
+                    
                   title: "Xác nhận đơn hàng",
-                  text: "Đơn hàng sẽ không được hoàn trả khi đặt,bạn có muốn đặt không?",
+                  text: "Đơn hàng sẽ không được hoàn trả khi đặt, bạn có muốn đặt không?",
                   type: "warning",
                   showCancelButton: true,
                 
@@ -565,12 +569,14 @@
                   required: 'true',
                   
 
-                    cancelButtonText: "Đóng, kiểm tra lại thông tin",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
+                cancelButtonText: "Đóng, kiểm tra lại thông tin",
+                closeOnConfirm: false,
+                closeOnCancel: false
                 },
                 function(isConfirm){
+                    
                      if (isConfirm) {
+
                         var shipping_email = $('.shipping_email').val();
                         var shipping_name = $('.shipping_name').val();
                         var shipping_address = $('.shipping_address').val();
@@ -607,6 +613,8 @@
     
 
     </script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script type="text/javascript">
         $(document).ready(function(){
             show_cart();
@@ -752,7 +760,8 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
-
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 
 </body>
 

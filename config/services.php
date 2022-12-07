@@ -51,8 +51,8 @@ return [
     
     'google' => [
         'client_id' => '1095278276551-ng8tudivghlkmvnsqoojs11n2fj7p20g.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'http://laptopstore.com/shopbanhanglaravel1/google/callback' 
+        'client_secret' => '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',
+        'redirect' => 'http://laptopstore.com/LaptopStore/google/callback' 
     ],
 
 

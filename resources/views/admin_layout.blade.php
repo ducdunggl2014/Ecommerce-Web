@@ -21,35 +21,37 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
                       function hideURLbar() { window.scrollTo(0, 1); }
   </script>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
   <!-- Bootstrap Core CSS -->
-  <link href="{{asset('public/backend/css_1/bootstrap.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('public/backend/css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
   <!-- Custom CSS -->
-  <link href="{{asset('public/backend/css_1/style.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('public/backend/css/style.css')}}" rel="stylesheet" type="text/css" />
   <!-- font-awesome icons CSS -->
-  <link href="{{asset('public/backend/css_1/font-awesome.css')}}" rel="stylesheet" />
+  <link href="{{asset('public/backend/css/font-awesome.css')}}" rel="stylesheet" />
   <!-- //font-awesome icons CSS-->
   <!-- side nav css file -->
-  <link href="{{asset('public/backend/css_1/SidebarNav.min.css')}}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{{asset('public/backend/css/SidebarNav.min.css')}}" media="all" rel="stylesheet" type="text/css" />
   <meta name="csrf-token" content="{{csrf_token()}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   {{--
-  <link rel="stylesheet" type="text/css" href="{{asset('public/backend/css_1/datatable.css')}}" /> --}}
+  <link rel="stylesheet" type="text/css" href="{{asset('public/backend/css/datatable.css')}}" /> --}}
   <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
   <!-- //side nav css file -->
   <!-- js-->
 
-  <script src="{{asset('public/backend/js_1/modernizr.custom.js')}}"></script>
+  <script src="{{asset('public/backend/js/modernizr.custom.js')}}"></script>
   <!--webfonts-->
   <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext"
     rel="stylesheet" />
   <!--//webfonts-->
   <!-- chart -->
-  <script src="{{asset('public/backend/js_1/Chart.js')}}"></script>
+  <script src="{{asset('public/backend/js/Chart.js')}}"></script>
   <!-- //chart -->
   <!-- Metis Menu -->
-  <script src="{{asset('public/backend/js_1/metisMenu.min.js')}}"></script>
-  <script src="{{asset('public/backend/js_1/custom.js')}}"></script>
-  <link href="{{asset('public/backend/css_1/custom.css')}}" rel="stylesheet" />
+  <script src="{{asset('public/backend/js/metisMenu.min.js')}}"></script>
+  <script src="{{asset('public/backend/js/custom.js')}}"></script>
+  <link href="{{asset('public/backend/css/custom.css')}}" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -65,7 +67,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   </style>
   <!--pie-chart -->
   <!-- index page sales reviews visitors pie chart -->
-  <script src="{{asset('public/backend/js_1/pie-chart.js')}}" type="text/javascript"></script>
+  <script src="{{asset('public/backend/js/pie-chart.js')}}" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function () {
         $('#demo-pie-1').pieChart({
@@ -108,8 +110,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <!-- //pie-chart -->
   <!-- index page sales reviews visitors pie chart -->
   <!-- requried-jsfiles-for owl -->
-  <link href="{{asset('public/backend/css_1/owl.carousel.css')}}" rel="stylesheet" />
-  <script src="{{asset('public/backend/js_1/owl.carousel.js')}}"></script>
+  <link href="{{asset('public/backend/css/owl.carousel.css')}}" rel="stylesheet" />
+  <script src="{{asset('public/backend/js/owl.carousel.js')}}"></script>
   <script>
     $(document).ready(function () {
         $('#owl-demo').owlCarousel({
@@ -388,13 +390,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 
         <!-- for amcharts js -->
-        <script src="{{asset('public/backend/js_1/amcharts.js')}}"></script>
-        <script src="{{asset('public/backend/js_1/serial.js')}}"></script>
-        <script src="{{asset('public/backend/js_1/export.min.js')}}"></script>
-        <link rel="stylesheet" href="{{asset('public/backend/css_1/export.css')}}" type="text/css" media="all" />
-        <script src="{{asset('public/backend/js_1/light.js')}}"></script>
+        <script src="{{asset('public/backend/js/amcharts.js')}}"></script>
+        <script src="{{asset('public/backend/js/serial.js')}}"></script>
+        <script src="{{asset('public/backend/js/export.min.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('public/backend/css/export.css')}}" type="text/css" media="all" />
+        <script src="{{asset('public/backend/js/light.js')}}"></script>
         <!-- for amcharts js -->
-        <script src="{{asset('public/backend/js_1/index1.js')}}"></script>
+        <script src="{{asset('public/backend/js/index1.js')}}"></script>
 
         @yield('admin_content')
       </div>
@@ -409,13 +411,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!--//footer-->
   </div>
   <!-- new added graphs chart js-->
-  <script src="{{asset('public/backend/js_1/Chart.bundle.js')}}"></script>
-  <script src="{{asset('public/backend/js_1/utils.js')}}"></script>
+  <script src="{{asset('public/backend/js/Chart.bundle.js')}}"></script>
+  <script src="{{asset('public/backend/js/utils.js')}}"></script>
 
   <!-- new added graphs chart js-->
   <!-- Classie -->
   <!-- for toggle left push menu script -->
-  <script src="{{asset('public/backend/js_1/classie.js')}}"></script>
+  <script src="{{asset('public/backend/js/classie.js')}}"></script>
   <script>
     var menuLeft = document.getElementById('cbp-spmenu-s1'),
         showLeftPush = document.getElementById('showLeftPush'),
@@ -437,23 +439,23 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <!-- //Classie -->
   <!-- //for toggle left push menu script -->
   <!--scrolling js-->
-  <script src="{{asset('public/backend/js_1/jquery.nicescroll.js')}}"></script>
-  <script src="{{asset('public/backend/js_1/scripts.js')}}"></script>
+  <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
+  <script src="{{asset('public/backend/js/scripts.js')}}"></script>
   <!--//scrolling js-->
   <!-- side nav js -->
-  <script src="{{asset('public/backend/js_1/SidebarNav.min.js')}}" type="text/javascript"></script>
+  <script src="{{asset('public/backend/js/SidebarNav.min.js')}}" type="text/javascript"></script>
   <script>
     $('.sidebar-menu').SidebarNav();
   </script>
   <!-- //side nav js -->
   <!-- for index page weekly sales java script -->
-  <script src="{{asset('public/backend/js_1/SimpleChart.js')}}"></script>
-  <script src="{{asset('public/backend/js_1/simple.money.format.js')}}"></script>
+  <script src="{{asset('public/backend/js/SimpleChart.js')}}"></script>
+  <script src="{{asset('public/backend/js/simple.money.format.js')}}"></script>
 
 
   <!-- //for index page weekly sales java script -->
   <!-- Bootstrap Core JavaScript -->
-  <script src="{{asset('public/backend/js_1/bootstrap.js')}}"></script>
+  <script src="{{asset('public/backend/js/bootstrap.js')}}"></script>
   <!-- //Bootstrap Core JavaScript -->
 
 
@@ -462,7 +464,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
   {{-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> --}}
 
-  <script type="text/javascript" src="{{asset('public/backend/js_1/datatables.js')}}"> </script>
+  <script type="text/javascript" src="{{asset('public/backend/js/datatables.js')}}"> </script>
 
 
   <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
@@ -856,11 +858,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   // <script src="{{asset('public/backend/js/jquery.form-validator.min.js')}}">
     // 
   // 
+  // 
   </script>
   // <script type="text/javascript">
     //   $.validate({
            
   //   });
+  // 
   // 
   // 
   </script>
@@ -944,7 +948,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         }); 
     })
   </script>
-
+  <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  {!! Toastr::message() !!}
 
 </body>
 

@@ -19,22 +19,22 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   </script>
 
   <!-- Bootstrap Core CSS -->
-  <link href="{{('public/backend/css_1/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+  <link href="{{('public/backend/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
 
   <!-- Custom CSS -->
-  <link href="{{('public/backend/css_1/style.css')}}" rel='stylesheet' type='text/css' />
+  <link href="{{('public/backend/css/style.css')}}" rel='stylesheet' type='text/css' />
 
   <!-- font-awesome icons CSS -->
-  <link href="{{('public/backend/css_1/font-awesome.css')}}" rel="stylesheet">
+  <link href="{{('public/backend/css/font-awesome.css')}}" rel="stylesheet">
   <!-- //font-awesome icons CSS -->
 
   <!-- side nav css file -->
-  <link href='{{(' public/backend/css_1/SidebarNav.min.css')}}' media='all' rel='stylesheet' type='text/css' />
+  <link href='{{(' public/backend/css/SidebarNav.min.css')}}' media='all' rel='stylesheet' type='text/css' />
   <!-- side nav css file -->
 
   <!-- js-->
-  <script src="{{('public/backend/js_1/jquery-1.11.1.min.js')}}"></script>
-  <script src="{{('public/backend/js_1/modernizr.custom.js')}}"></script>
+  <script src="{{('public/backend/js/jquery-1.11.1.min.js')}}"></script>
+  <script src="{{('public/backend/js/modernizr.custom.js')}}"></script>
 
   <!--webfonts-->
   <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext"
@@ -42,9 +42,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <!--//webfonts-->
 
   <!-- Metis Menu -->
-  <script src="{{('public/backend/js_1/metisMenu.min.js')}}"></script>
-  <script src="{{('public/backend/js_1/custom.js')}}"></script>
-  <link href="{{('public/backend/css_1/custom.css')}}" rel="stylesheet">
+  <script src="{{('public/backend/js/metisMenu.min.js')}}"></script>
+  <script src="{{('public/backend/js/custom.js')}}"></script>
+  <link href="{{('public/backend/css/custom.css')}}" rel="stylesheet">
   <!--//Metis Menu -->
 
 </head>
@@ -120,7 +120,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   </div>
 
   <!-- side nav js -->
-  <script src='{{(' public />backend/js_1/SidebarNav.min.js')}}' type='text/javascript'></script>
+  <script src='{{(' public />backend/js/SidebarNav.min.js')}}' type='text/javascript'></script>
   <script>
     $('.sidebar-menu').SidebarNav()
   </script>
@@ -128,7 +128,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
   <!-- Classie -->
   <!-- for toggle left push menu script -->
-  <script src="{{('public/backend/js_1/classie.js')}}"></script>
+  <script src="{{('public/backend/js/classie.js')}}"></script>
   <script>
     var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -151,12 +151,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <!-- //for toggle left push menu script -->
 
   <!--scrolling js-->
-  <script src="{{('public/backend/js_1/jquery.nicescroll.js')}}"></script>
-  <script src="{{('public/backend/js_1/scripts.js')}}"></script>
+  <script src="{{('public/backend/js/jquery.nicescroll.js')}}"></script>
+  <script src="{{('public/backend/js/scripts.js')}}"></script>
   <!--//scrolling js-->
 
   <!-- Bootstrap Core JavaScript -->
-  <script src="{{('public/backend/js_1/bootstrap.js')}}"> </script>
+  <script src="{{('public/backend/js/bootstrap.js')}}"> </script>
 
 </body>
 
