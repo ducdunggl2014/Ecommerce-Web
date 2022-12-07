@@ -331,12 +331,12 @@ class OrderController extends Controller
 			$coupon_number = 0;
 		}
 		
-		return view('admin.view_order')->with(compact('order_details','getcustomer','shipping','coupon_condition','coupon_number','getorder','order_status'));
+		return view('admin.order.view_order')->with(compact('order_details','getcustomer','shipping','coupon_condition','coupon_number','getorder','order_status'));
 
 	}
     public function manage_order(){
     	$getorder = Order::orderby('created_at','DESC')->paginate(5);
-    	return view('admin.manage_order')->with(compact('getorder'));
+    	return view('admin.order.manage_order')->with(compact('getorder'));
     }
 
 		public function history(Request $request){

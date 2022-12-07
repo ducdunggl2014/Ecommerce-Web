@@ -14,7 +14,7 @@ class AuthController extends Controller
     }
 
     public function login_auth(){
-        return view('admin.custom_auth.login_auth');
+        return view('admin.login.login_auth');
     }
 
     public function logout_auth(){

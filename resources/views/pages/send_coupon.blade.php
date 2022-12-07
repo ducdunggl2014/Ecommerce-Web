@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Gửi mã khuyến mãi cho khách hàng VIP</title>
+	<title>Gửi mã khuyến mãi cho khách hàng </title>
 </head>
 
 <body>

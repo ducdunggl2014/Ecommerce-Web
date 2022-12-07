@@ -346,8 +346,8 @@ class CheckoutController extends Controller
         ->join('tbl_order_details','tbl_order.order_id','=','tbl_order_details.order_id')
         ->select('tbl_order.*','tbl_customers.*','tbl_shipping.*','tbl_order_details.*')->first();
 
-        $manager_order_by_id  = view('admin.view_order')->with('order_by_id',$order_by_id);
-        return view('admin_layout')->with('admin.view_order', $manager_order_by_id);
+        $manager_order_by_id  = view('admin.order.view_order')->with('order_by_id',$order_by_id);
+        return view('admin_layout')->with('admin.order.view_order', $manager_order_by_id);
         
     }
     public function login_checkout(Request $request){
@@ -577,7 +577,7 @@ class CheckoutController extends Controller
         ->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
         ->select('tbl_order.*','tbl_customers.customer_name')
         ->orderby('tbl_order.order_id','desc')->get();
-        $manager_order  = view('admin.manage_order')->with('all_order',$all_order);
-        return view('admin_layout')->with('admin.manage_order', $manager_order);
+        $manager_order  = view('admin.order.manage_order')->with('all_order',$all_order);
+        return view('admin_layout')->with('admin.order.manage_order', $manager_order);
     }
 }

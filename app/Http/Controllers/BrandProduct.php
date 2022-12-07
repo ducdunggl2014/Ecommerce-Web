@@ -26,15 +26,15 @@ class BrandProduct extends Controller
     }
     public function add_brand_product(){
         $this->AuthLogin();
-    	return view('admin.add_brand_product');
+    	return view('admin.brand.add_brand_product');
     }
     public function all_brand_product(){
         $this->AuthLogin();
     	//$all_brand_product = DB::table('tbl_brand')->get(); //static huong doi tuong
         // $all_brand_product = Brand::all(); 
         $all_brand_product = Brand::orderBy('brand_id','DESC')->paginate(5);
-    	$manager_brand_product  = view('admin.all_brand_product')->with('all_brand_product',$all_brand_product);
-    	return view('admin_layout')->with('admin.all_brand_product', $manager_brand_product);
+    	$manager_brand_product  = view('admin.brand.all_brand_product')->with('all_brand_product',$all_brand_product);
+    	return view('admin_layout')->with('admin.brand.all_brand_product', $manager_brand_product);
 
 
     }
@@ -109,9 +109,9 @@ class BrandProduct extends Controller
 
         // $edit_brand_product = DB::table('tbl_brand')->where('brand_id',$brand_product_id)->get();
         $edit_brand_product = Brand::where('brand_id',$brand_product_id)->get();
-        $manager_brand_product  = view('admin.edit_brand_product')->with('edit_brand_product',$edit_brand_product);
+        $manager_brand_product  = view('admin.brand.edit_brand_product')->with('edit_brand_product',$edit_brand_product);
 
-        return view('admin_layout')->with('admin.edit_brand_product', $manager_brand_product);
+        return view('admin_layout')->with('admin.brand.edit_brand_product', $manager_brand_product);
     }
     public function update_brand_product(Request $request,$brand_product_id){
         $this->AuthLogin();
