@@ -151,6 +151,10 @@ Route::get('/logout-checkout','CheckoutController@logout_checkout');
 Route::post('/add-customer','CheckoutController@add_customer');
 Route::post('/order-place','CheckoutController@order_place');
 Route::post('/login-customer','CheckoutController@login_customer');
+Route::post('/add-phone','CheckoutController@add_phone');
+
+
+
 
 Route::get('/checkout','CheckoutController@checkout')->name('checkout');
 

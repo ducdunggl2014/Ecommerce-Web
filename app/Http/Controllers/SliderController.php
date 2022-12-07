@@ -35,7 +35,7 @@ class SliderController extends Controller
         DB::table('tbl_slider')->where('slider_id',$slide_id)->update(['slider_status'=>0]);
         // Session::put('message','Tắt hoạt slider thành công');
         Toastr::success('Tắt hoạt slider thành công','Thành công');
-        return Redirect::to('manage-slider');
+        return redirect()->back();
 
     }
     public function active_slide($slide_id){
@@ -43,7 +43,7 @@ class SliderController extends Controller
         DB::table('tbl_slider')->where('slider_id',$slide_id)->update(['slider_status'=>1]);
         // Session::put('message','Kích hoạt slider thành công');
         Toastr::success('Kích hoạt slider thành công','Thành công');
-        return Redirect::to('manage-slider');
+        return redirect()->back();
 
     }
 

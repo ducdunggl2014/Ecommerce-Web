@@ -425,6 +425,44 @@ class CheckoutController extends Controller
 
 
     }
+    // public function add_phone(Request $request){
+    //     // $this->validation($request);
+
+    //     // $data = $request->validate([
+      
+    //     // 'customer_phone' => 'required|numeric|digits_between:10,10',
+       
+       
+        
+    //     // ],
+    //     // [ 
+        
+
+        
+    //     // 'customer_phone.required' => 'Vui lòng điền số điện thoại',
+    //     // 'customer_phone.numeric' => 'Vui lòng điền số điện thoại hợp lệ',
+    //     // 'customer_phone.digits_between' => 'Vui lòng điền số điện thoại là 10 số',
+    //     // 'customer_phone.digits_between' => 'Vui lòng điền số điện thoại là 10 số',
+        
+       
+      
+    //     //     ]
+    //     // );
+
+    
+    // 	// $data['customer_phone'] = $request->customer_phone;
+    
+
+    // 	// $customer_id = DB::table('tbl_customers')->where('customer_email','<>','')->insertGetId($data);
+
+    // 	// Session::put('customer_id',$customer_id);
+    // 	// Session::put('customer_name',$request->customer_name);
+    //     // Toastr::success('Xác nhận số điện thoại thành công','Thành công');
+
+    // 	return Redirect::to('/checkout');
+
+
+    // }
     public function checkout(Request $request){
          //seo 
          //slide

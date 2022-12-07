@@ -47,6 +47,9 @@
         href="{{asset('public/frontend/images/apple-touch-icon-57-precomposed.png')}}">
 </head>
 <!--/head-->
+<style>
+    body {}
+</style>
 
 <body>
 
@@ -164,12 +167,13 @@
         </div>
         <!--/header-middle-->
 
-        <div class="header-bottom">
+        <div class="header-bottom" style="">
+
             <!--header-bottom-->
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-sm-7">
-                        <div class="navbar-header">
+                        <div class="navbar-header ">
                             <button type="button" class="navbar-toggle" data-toggle="collapse"
                                 data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
@@ -262,49 +266,23 @@
 
     <footer id="footer">
         <!--Footer-->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="companyinfo">
-
-                            <p>
-                                <img src="{{URL::to('public/uploads/contact/'.$val->info_logo)}}" height="125"
-                                    width="250" alt="" />
-
-
-                            </p>
-
-
-                            @foreach($contact as $key => $cont)
-
-                            <p
-                                style="font-size: 16px;font-weight:700;    margin-top: -32px;color: #47a447;margin-left: 20px;">
-                                {!!$cont->slogan_logo!!}
-
-                            </p>
-
-
-                            @endforeach
-
-
-                        </div>
-                    </div>
-
-                    {{-- <div class="col-sm-3">
-                        <div class="address">
-                            <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
-                            <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
 
         <div class="footer-widget">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
+                        <p>
+                            <img src="{{URL::to('public/uploads/contact/'.$val->info_logo)}}" height="125" width="250"
+                                alt="" />
+                        </p>
+                        @foreach($contact as $key => $cont)
+                        <p
+                            style="font-size: 16px;font-weight:700;    margin-top: -32px;color: #47a447;margin-left: 20px;">
+                            {!!$cont->slogan_logo!!}
+                        </p>
+                        @endforeach
+                    </div>
+                    <div class="col-sm-2">
                         <div class="single-widget">
                             <h2>Dịch vụ</h2>
                             <ul class="nav nav-pills nav-stacked">
@@ -312,11 +290,10 @@
                                 <li><a href="#">Hướng dẫn thanh toán</a></li>
                                 <li><a href="#">Điều khoản & dịch vụ</a></li>
                                 <li><a href="#">Quy định đổi trả</a></li>
-
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="single-widget">
                             <h2>Thông tin Shop</h2>
                             <ul class="nav nav-pills nav-stacked">
@@ -333,7 +310,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <div class="single-widget">
                             <h2>Fanpage</h2>
                             <ul class="nav nav-pills nav-stacked">

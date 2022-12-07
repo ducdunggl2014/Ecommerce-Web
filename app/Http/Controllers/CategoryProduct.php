@@ -122,7 +122,7 @@ class CategoryProduct extends Controller
         Toastr::success('Tắt kích hoạt danh mục sản phẩm thành công','Thành công');
 
         // Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
-        return Redirect::to('all-category-product');
+        return redirect()->back();
 
     }
     public function active_category_product($category_product_id){
@@ -131,7 +131,7 @@ class CategoryProduct extends Controller
         Toastr::success('Kích hoạt danh mục sản phẩm thành công','Thành công');
 
         // Session::put('message','Kích hoạt danh mục sản phẩm thành công');
-        return Redirect::to('all-category-product');
+        return redirect()->back();
     }
     public function edit_category_product($category_product_id){
         $this->AuthLogin();

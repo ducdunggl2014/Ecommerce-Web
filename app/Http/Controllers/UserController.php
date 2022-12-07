@@ -9,6 +9,8 @@ use App\Roles;
 use App\Admin;
 use Auth;
 use Session;
+use Toastr;
+
 class UserController extends Controller
 {
     /**
@@ -40,7 +42,9 @@ public function impersonate_destroy(){
 
     public function delete_user_roles($admin_id){
         if(Auth::id() == $admin_id){
-            return redirect()->back()->with('message','Bạn không được xóa quyền của mình');
+            Toastr::error('Bạn không được xóa quyền của mình','Thất bại');
+
+            return redirect()->back();
         }
 
         $admin = Admin::find($admin_id);
@@ -49,14 +53,18 @@ public function impersonate_destroy(){
             $admin->roles()->detach();
             $admin->delete();
         }
-        return redirect()->back()->with('message','Xóa user thành công');
+        Toastr::success('Xóa user thành công','Thành công');
+
+        return redirect()->back();
         
 
     }
     public function assign_roles(Request $request){
 
         if(Auth::id() == $request->admin_id){
-            return redirect()->back()->with('message','Bạn không được phân quyền của mình');
+            Toastr::error('Bạn không được phân quyền của mình','Thất bại');
+
+            return redirect()->back();
         }
 
         $user = Admin::where('admin_email',$request->admin_email)->first();
@@ -71,7 +79,9 @@ public function impersonate_destroy(){
         if($request->admin_role){
            $user->roles()->attach(Roles::where('name','admin')->first());     
         }
-        return redirect()->back()->with('message','Cấp quyền thành công');
+        Toastr::success('Phân quyền thành công','Thành công');
+
+        return redirect()->back();
     }
     public function store_users(Request $request){
         $data = $request->validate([
@@ -108,7 +118,8 @@ public function impersonate_destroy(){
         $admin->admin_password = md5($data['admin_password']);
         $admin->save();
         $admin->roles()->attach(Roles::where('name','user')->first());
-        Session::put('message','Thêm users thành công');
+        Toastr::success('Thêm users thành công','Thành công');
+
         return Redirect::to('users');
     }
     /**

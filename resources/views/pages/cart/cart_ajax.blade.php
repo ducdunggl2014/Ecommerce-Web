@@ -95,7 +95,7 @@
 								<a class="btn btn-success" style="margin-top:16px" href=" {{url('/checkout')}}">
 									Đến bước Đặt hàng
 									@else
-									<a class="btn btn-success"" href=" {{url('/dang-nhap')}}">Đến bước Đặt hàng</a>
+									<a class="btn btn-success" style="margin-top:16px" href=" {{url('/dang-nhap')}}">Đến bước Đặt hàng</a>
 									@endif
 							</td>
 
