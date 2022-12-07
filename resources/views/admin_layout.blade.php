@@ -9,8 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <head>
   <title>
-    Glance Design Dashboard an Admin Panel Category Flat Bootstrap Responsive
-    Website Template | Home :: w3layouts
+    Trang Quản lý Dành cho Admin | Home :: w3layouts
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

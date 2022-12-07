@@ -46,7 +46,7 @@ return [
     'facebook' => [
         'client_id' => '810141006983359',  //client face của bạn
         'client_secret' => 'ccdfc8274accd9398e868149cacd2cb5',  //client app service face của bạn
-        'redirect' => 'http://localhost/shopbanhanglaravel1/admin/callback' //callback trả về
+        'redirect' => 'http://localhost/LaptopStore/admin/callback' //callback trả về
     ],
     
     'google' => [

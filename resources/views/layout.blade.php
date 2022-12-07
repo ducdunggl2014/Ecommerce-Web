@@ -14,14 +14,7 @@
     <link rel="icon" type="image/x-icon" href="{{URL::to('public/uploads/contact/'.$val->info_logo)}}" />
     @endforeach
 
-    {{--
-    <meta property="og:image" content="{{$image_og}}" />
-    <meta property="og:site_name" content="http://localhost/tutorial_youtube/shopbanhanglaravel" />
-    <meta property="og:description" content="{{$meta_desc}}" />
-    <meta property="og:title" content="{{$meta_title}}" />
-    <meta property="og:url" content="{{$url_canonical}}" />
-    <meta property="og:type" content="website" /> --}}
-    <!--//-------Seo--------->
+
     <title>{{$meta_title}}</title>
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -311,7 +304,7 @@
         <div class="footer-widget">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="single-widget">
                             <h2>Dịch vụ</h2>
                             <ul class="nav nav-pills nav-stacked">
@@ -323,7 +316,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="single-widget">
                             <h2>Thông tin Shop</h2>
                             <ul class="nav nav-pills nav-stacked">
@@ -340,7 +333,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-5">
                         <div class="single-widget">
                             <h2>Fanpage</h2>
                             <ul class="nav nav-pills nav-stacked">
@@ -356,7 +349,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3 col-sm-offset-1">
+                    {{-- <div class="col-sm-3 col-sm-offset-1">
                         <div class="single-widget">
                             <h2>Đăng ký nhận tin khuyến mãi</h2>
                             <form action="#" class="searchform">
@@ -366,7 +359,7 @@
                                 <p>Chúng tôi sẽ gửi những thông tin <br />mới nhất qua email của bạn...</p>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

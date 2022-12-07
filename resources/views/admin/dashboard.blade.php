@@ -96,7 +96,7 @@
       </div>
     </form>
     <div class="col-md-12">
-      <div id="chart" style="height: 250px;"></div>
+      <div id="chart" style="height: 150px;"></div>
     </div>
   </div>
 
@@ -107,14 +107,18 @@
       }
 
       table.table-bordered.table-dark tr th {
-        color: #000;
+        color: #fff;
+      }
+
+      .table>tbody>tr>td {
+        color: white;
       }
     </style>
     <p class="title_thongke">Thống kê truy cập</p>
     <table class="table table-bordered table-dark">
       <thead>
         <tr>
-          <th scope="col">Đang online</th>
+          {{-- <th scope="col">Đang online</th> --}}
           <th scope="col">Tổng tháng trước</th>
           <th scope="col">Tổng tháng này</th>
           <th scope="col">Tổng một năm</th>
@@ -124,7 +128,7 @@
       <tbody>
         <tr>
 
-          <td>{{$visitor_count}}</td>
+          {{-- <td>{{$visitor_count}}</td> --}}
           <td>{{$visitor_last_month_count}}</td>
           <td>{{$visitor_this_month_count}}</td>
           <td>{{$visitor_year_count}}</td>
