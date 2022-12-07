@@ -98,7 +98,7 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
 
-                                <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+                                {{-- <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li> --}}
                                 <?php
                                    $customer_id = Session::get('customer_id');
                                    $shipping_id = Session::get('shipping_id');
@@ -190,7 +190,7 @@
                                 @else
                                 <li><a href="{{URL::to('/checkout')}}" class="active">Trang chủ</a></li>
                                 @endif
-                                <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
+                                {{-- <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         @foreach($category as $key => $danhmuc)
                                         <li><a
@@ -198,7 +198,7 @@
                                         </li>
                                         @endforeach
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
 
                                 </li>

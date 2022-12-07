@@ -59,11 +59,13 @@
 				@endif
 			</form>
 
-			<p><b>Tình trạng:</b> Còn hàng</p>
-			<p><b>Điều kiện:</b> Mơi 100%</p>
-			<p><b>Số lượng kho còn:</b> {{$value->product_quantity}}</p>
-			<p><b>Thương hiệu:</b> {{$value->brand_name}}</p>
-			<p><b>Danh mục:</b> {{$value->category_name}}</p>
+			{{-- <p><b>Tình trạng:</b> Còn hàng</p> --}}
+			<p><b>Điều kiện:</b> <span>
+					Mới nguyên seal 100%</span>
+			</p>
+			<p><b>Số lượng kho còn:</b> <span>{{$value->product_quantity}}</span></p>
+			<p><b>Thương hiệu: </b><span style="text-transform: uppercase">{{ $value->brand_name}}</span></p>
+			<p><b>Danh mục:</b> <span>{{$value->category_name}}</span></p>
 			<a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
 		</div>
 		<!--/product-information-->

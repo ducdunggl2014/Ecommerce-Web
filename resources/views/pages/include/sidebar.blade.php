@@ -28,7 +28,8 @@
               @foreach($category as $key => $cate_sub)
               @if($cate_sub->category_parent == $cate->category_id)
 
-              <li><a href="{{URL::to('/danh-muc/'.$cate_sub->slug_category_product)}}">{{$cate_sub->category_name}} </a>
+              <li style="margin-bottom:10px;"><a
+                  href="{{URL::to('/danh-muc/'.$cate_sub->slug_category_product)}}">{{$cate_sub->category_name}} </a>
               </li>
               @endif
               @endforeach
