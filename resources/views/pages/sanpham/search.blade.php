@@ -4,7 +4,7 @@
     <!--features_items-->
     <h2 class="title text-center">Kết quả tìm kiếm</h2>
     @foreach($search_product as $key => $product)
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="product-image-wrapper">
             <a href="{{URL::to('/chi-tiet/'.$product->product_slug)}}">
                 <div class="single-products">

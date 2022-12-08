@@ -31,6 +31,7 @@ class ProductController extends Controller
         $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get(); 
        
 
+        // return view('admin.product.add_product')->with('cate_product', $cate_product)->with('brand_product',$brand_product);
         return view('admin.product.add_product')->with('cate_product', $cate_product)->with('brand_product',$brand_product);
     	
 
@@ -128,7 +129,8 @@ class ProductController extends Controller
         $gallery->save();
         // Session::put('message','Thêm sản phẩm thành công');
         Toastr::success('Thêm sản phẩm thành công','Thành công');
-        return Redirect::to('add-product');
+        // return Redirect::to('add-product');
+        return Redirect::to('all-product');
 
        
     }
@@ -137,7 +139,8 @@ class ProductController extends Controller
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>0]);
         // Session::put('message','Tắt kích hoạt sản phẩm thành công');
         Toastr::success('Tắt kích hoạt sản phẩm thành công','Thành công');
-        return Redirect::to('all-product');
+        // return Redirect::to('all-product');
+        return redirect()->back();
 
     }
     public function active_product($product_id){
@@ -145,7 +148,9 @@ class ProductController extends Controller
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
         // Session::put('message','Kích hoạt sản phẩm thành công');
         Toastr::success('Kích hoạt sản phẩm thành công','Thành công');
-        return Redirect::to('all-product');
+        // return Redirect::to('all-product');
+        return redirect()->back();
+
     }
     public function edit_product($product_id){
          $this->AuthLogin();

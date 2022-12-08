@@ -215,14 +215,11 @@
                     </div>
                     <div class="col-sm-5">
                         @if(!Session::get('success_paypal')==true)
-
                         <form action="{{URL::to('/tim-kiem')}}" autocompelete="off" class="searchform" method="post">
-
                             {{csrf_field()}}
-
                             <input type="text" style="width:60%" name="keywords_submit" id="keywords"
                                 placeholder="Tìm kiếm sản phẩm" style="position: relative;" />
-                            <div id="search_ajax"></div>
+                            {{-- <div id="search_ajax"></div> --}}
                             <button type="submit" class="btn btn-default"><i
                                     class="fa fa-arrow-circle-o-right"></i></button>
                         </form>

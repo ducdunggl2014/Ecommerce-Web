@@ -47,19 +47,18 @@
 
           <td>
 
+
+
             <span class="text-ellipsis">
-              <?php
-             if($pro->product_status==1 ){
-              ?>
+
+              @if($pro->product_status==1 )
               <a href="{{URL::to('/unactive-product/'.$pro->product_id)}}"><i class="fa-solid fa-toggle-on"></i></a>
-              <?php
-               }else{
-              ?>
+              @else
+
               <a href="{{URL::to('/active-product/'.$pro->product_id)}}"><i class="fa-solid fa-toggle-off"></i></a>
-              <?php
-             }
-            ?>
+              @endif
             </span>
+
 
           </td>
           <td>
