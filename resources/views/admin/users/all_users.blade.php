@@ -22,9 +22,9 @@
           <th>Email</th>
           <th>Phone</th>
           {{-- <th>Password</th> --}}
-          <th>Author</th>
+          <th>Nhân viên</th>
           <th>Admin</th>
-          <th>User</th>
+          {{-- <th>User</th> --}}
 
         </tr>
       </thead>
@@ -46,7 +46,7 @@
 
             <td><input type="checkbox" name="author_role" {{$user->hasRole('author') ? 'checked' : ''}}></td>
             <td><input type="checkbox" name="admin_role" {{$user->hasRole('admin') ? 'checked' : ''}}></td>
-            <td><input type="checkbox" name="user_role" {{$user->hasRole('user') ? 'checked' : ''}}></td>
+            {{-- <td><input type="checkbox" name="user_role" {{$user->hasRole('user') ? 'checked' : ''}}></td> --}}
 
             <td>
 

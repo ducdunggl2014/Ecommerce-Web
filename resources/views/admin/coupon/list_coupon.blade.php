@@ -26,7 +26,6 @@
           <th>Số lượng giảm giá</th>
           <th>Điều kiện giảm giá</th>
           <th>Số giảm</th>
-          <th>Tình trạng</th>
           <th>Hết hạn</th>
           <th>Quản lý</th>
           <th>Gửi mã </th>
@@ -68,20 +67,9 @@
                }
               ?>
             </span></td>
-          <td><span class="text-ellipsis">
-              <?php
-               if($cou->coupon_status==1){
-                ?>
-              <span style="color: green">Đang bật</span>
-              <?php
-                 }else{
-                ?>
-              <span style="color: red">Đang tắt</span>
-              <?php
-               }
-              ?>
-            </span>
-          </td>
+
+
+
           <td>
 
             @if($cou->coupon_date_end>=$today) <span style="color: green">Còn hạn</span>

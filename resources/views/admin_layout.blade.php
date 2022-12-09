@@ -403,8 +403,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!--footer-->
     <div class="footer">
       <p>
-        &copy; 2018 Glance Design Dashboard. All Rights Reserved | Design by
-        <a href="https://w3layouts.com/" target="_blank">w3layouts</a>
+        &copy; 2022 Dashboard
       </p>
     </div>
     <!--//footer-->
